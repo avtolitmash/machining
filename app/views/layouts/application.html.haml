@@ -2,8 +2,37 @@
 %html
   %head
     %title Machining
+    %meta{ :'http-equiv' => 'Content-Type', content: 'text/html; charset=utf-8' }
+    %meta{ name: 'robots', content: 'index,follow' }
+    %meta{ name: 'description', content: '' }
+    %meta{ name: 'keywords', content: '' }
     = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag params[:controller]
     = javascript_include_tag 'application'
+    = javascript_include_tag params[:controller]
     = csrf_meta_tags 
   %body
+    #header
+      #top-bar
+        .container
+          = link_to image_tag('logo.png', style: 'width: 85px'), root_path, id: 'logo'
+          %ul#main-menu
+            %li
+              %a.active{ href: '#'}
+                %span
+                some text
+            %li
+              %a{ href: '#'}
+                %span
+                some text
+            %li
+              %a{ href: '#'}
+                %span
+                some text
+            %li
+              %a{ href: '#'}
+                %span
+                some text
+      #after-top-bar
+      #our-capabilities
     = yield

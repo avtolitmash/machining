@@ -2,4 +2,66 @@
  *= require_self
  */
 
+@import 'compass/css3'
 @import 'bootstrap'
+@import 'main-menu/*.png'
+@include all-main-menu-sprites
+
+$max-width: 1170px
+
+@mixin rombus
+  .rombus
+    position: absolute
+    margin: 105px 0px 0px 80px
+    display: block
+    width: 20px
+    height: 20px
+    background: #139dcc
+    +rotate(45deg)
+    +transition-property(margin)
+    +transition-duration(2s)
+@mixin rombus-active
+  +rombus
+  .rombus:hover
+    margin: 85px 0px 0px 80px
+@mixin main-menu-button
+  border-right: none
+  background: rgb(25, 27, 32)
+  +box-shadow(inset 0 0 3px 2px rgba(0, 0, 0, 0.2))
+  width: 171px
+
+.container
+  margin: 0 auto
+  width: $max-width
+  max-width: $max-width
+
+#top-bar
+  height: 90px
+  overflow: hidden
+  +background-image(linear-gradient(#2a2d32, #23262b))
+  .container
+    padding-left: 10px
+#logo
+  float: left
+  margin-top: 5px
+#main-menu
+  float: right
+  li
+    display: inline-block
+    margin: 0px 0px 0px -4px
+    padding: 0
+    a
+      display: inline-block
+      border-right: solid 1px #2d3033
+      width: 170px
+      height: 90px
+      &:hover
+        +main-menu-button
+        +rombus-active
+    a.active
+      +main-menu-button
+      +rombus-active
+#after-top-bar
+  border-top: solid 3px #26649f
+  height: 7px
+  background: #139dcc
