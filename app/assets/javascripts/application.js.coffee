@@ -6,4 +6,13 @@
 //= require ../../../vendor/assets/javascripts/superfish.js
 
 $(document).ready ->
-  #some comment
+  a = $('ul#main-menu li.active')
+  $('ul#main-menu li').hover(
+    ->
+      a.removeClass('active')
+      $(@).addClass('active')
+    ,
+    ->
+      $(@).removeClass('active')
+      a.addClass('active')
+  )

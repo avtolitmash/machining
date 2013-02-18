@@ -17,22 +17,33 @@
         .container
           = link_to image_tag('logo.png', style: 'width: 85px'), root_path, id: 'logo'
           %ul#main-menu
-            %li
-              %a.active{ href: '#'}
-                %span
-                some text
-            %li
+            %li.active.main
+              %em
               %a{ href: '#'}
                 %span
-                some text
-            %li
+                Главная
+            %li.about-us
+              %em
               %a{ href: '#'}
                 %span
-                some text
-            %li
+                О нас
+            %li.products
+              %em
               %a{ href: '#'}
                 %span
-                some text
+                Продукция
+            %li.services
+              %em
+              %a{ href: '#'}
+                %span
+                Услуги
+            %li.contacts
+              %em
+              %a{ href: '#'}
+                %span
+                Контакты
       #after-top-bar
+        .container
+          test
       #our-capabilities
     = yield

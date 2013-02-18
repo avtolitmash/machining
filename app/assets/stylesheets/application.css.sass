@@ -10,9 +10,11 @@
 $max-width: 1170px
 
 @mixin rombus
-  .rombus
+  em
     position: absolute
     margin: 105px 0px 0px 80px
+    +transition-property(margin)
+    +transition-duration(2s)
     display: block
     width: 20px
     height: 20px
@@ -22,7 +24,7 @@ $max-width: 1170px
     +transition-duration(2s)
 @mixin rombus-active
   +rombus
-  .rombus:hover
+  em
     margin: 85px 0px 0px 80px
 @mixin main-menu-button
   border-right: none
@@ -50,17 +52,50 @@ $max-width: 1170px
     display: inline-block
     margin: 0px 0px 0px -4px
     padding: 0
+    text-align: center
     a
+      font-family: 'Open Sans', sans-serif
+      font-size: 13px
+      font-style: icalic
+      color: #fff
       display: inline-block
+      padding-top: 35px
       border-right: solid 1px #2d3033
       width: 170px
-      height: 90px
+      height: 55px
+      text-transform: capitalize
       &:hover
-        +main-menu-button
-        +rombus-active
-    a.active
+        text-decoration: none
+      span
+        display: inline-block
+        margin: 0px 5px -2px 0px
+        width: 15px
+        height: 14px
+  li.active
+    +rombus-active
+    a
       +main-menu-button
-      +rombus-active
+  li.main a span
+    +main-menu-sprite(main)
+  li.about-us a span
+    +main-menu-sprite(about-us)
+  li.products a span
+    +main-menu-sprite(products)
+  li.services a span
+    +main-menu-sprite(services)
+  li.contacts a span
+    height: 12px
+    +main-menu-sprite(contacts)
+  li.active.main a span
+    +main-menu-sprite(main-hover)
+  li.active.about-us a span
+    +main-menu-sprite(about-us-hover)
+  li.active.products a span
+    +main-menu-sprite(products-hover)
+  li.active.services a span
+    +main-menu-sprite(services-hover)
+  li.active.contacts a span
+    +main-menu-sprite(contacts-hover)
 #after-top-bar
   border-top: solid 3px #26649f
   height: 7px
